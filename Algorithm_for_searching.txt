@@ -1,0 +1,79 @@
+#The following program is for checking whether certain entries exist in a certain list. For this, a fuction was
+#created which takes one lists and one string as its parameters, the list is created within the program and the string
+#is taken from the file. Every line in the file is considered as a separate string and is matched with the entry in the 
+#file.
+def movie_search(series1,series2,entry):
+    #movie_serach is a fucntion that either returns true or false in the form of statements. This function is used to
+    #check whether a certain entry is present in the given list or not.
+    mlower_list=[]
+    mlower_list2=[]
+     #currently an empty list which will contain the lower case values of all strings on the list.
+    for movie in series1:
+        #this loop is to convert all strings of the list to lower case.
+        movie_lower=movie.lower() 
+        #movie is a variable which contains each string in the list and movie_lower contains all lower case values
+        #.lower() is a string function that converts all the variables to lower case
+        mlower_list.append(movie_lower)
+        #.append() is a function used to add elements to a list.In this case we're adding to mlower_list.
+        #print(mlower_list)
+    for tv in series2:
+        tv_lower=tv.lower()
+        mlower_list2.append(tv_lower)
+    if entry.lower() in (mlower_list2 and mlower_list):
+        print('Yes, we have '+entry.lower()+' in Netflix and Amazon.')
+#The following program is for checking whether certain entries exist in a certain list. For this, a fuction was
+#created which takes one lists and one string as its parameters, the list is created within the program and the string
+#is taken from the file. Every line in the file is considered as a separate string and is matched with the entry in the 
+#file.
+def movie_search(series1,series2,entry):
+    #movie_serach is a fucntion that either returns true or false in the form of statements. This function is used to
+    #check whether a certain entry is present in the given list or not.
+    mlower_list=[]
+    mlower_list2=[]
+     #currently an empty list which will contain the lower case values of all strings on the list.
+    for movie in series1:
+        #this loop is to convert all strings of the list to lower case.
+        movie_lower=movie.lower() 
+        #movie is a variable which contains each string in the list and movie_lower contains all lower case values
+        #.lower() is a string function that converts all the variables to lower case
+        mlower_list.append(movie_lower)
+        #.append() is a function used to add elements to a list.In this case we're adding to mlower_list.
+        #print(mlower_list)
+    for tv in series2:
+        tv_lower=tv.lower()
+        mlower_list2.append(tv_lower)
+    if entry.lower() in mlower_list and entry.lower() in mlower_list2:
+        print('Yes, we have '+entry+' in Netflix and Amazon.')
+    elif entry.lower() in mlower_list: 
+        #converting the string to lower case and checking whether it is in the given list.
+            print('Yes, we have '+entry+' in Netflix.')
+            #returns true
+    elif entry.lower() in mlower_list2:
+        print('Yes, we have '+entry+' in Amazon.')
+    else:
+         print('No, we don\'t have ' +entry)
+            #returns false
+        
+            
+series1=['The Dark Knight','Breaking Bad','Resovoir Dogs','The Last Dance','Shutter Island','Rick and Morty'] 
+series2=['Terminator','Mars Attacks','Silence','U Boat','Breaking Bad'] 
+#given series consists of 6 movies/Tv shows, using this as reference to check with the value entered.  
+with open('C:/Users/admin/.spyder-py3/search1.txt','r') as f:
+    #with is used to open the file and closing it without manually. File contents are stored in variable f.
+     files=int(input("Enter the number of movies:"))
+     #use this to enter number of movies entered in the file
+     
+     #count=0
+     #for line in f:
+         #count=count+1   #block of code(lines 34 to 38) is supposed to count the number of lines in the file, but
+     #files=count         #has a minor bug
+     #print(files)
+     for i in range(files): 
+         #i starts from zero and goes till file-1
+         f_read=f.readline()
+         #.readline() is a function that reads every line individually in the file
+         f_correct=f_read.strip().lower()
+         #.strip() removes all the whitespaces left and right of the line
+         #print(f_correct)
+         movie_search(series1,series2,f_correct) 
+         #fucntion movie_search is called.
